@@ -1,16 +1,17 @@
+class College:
+    def __init__(self, n, stu, tea, add):
+        self.name = n
+        self.student = stu
+        self.teacher = tea
+        self.address = add
+
+
 class Student:
     def __init__(self, r, n, mar, add):
         self.roll = r
         self.name = n
         self.marks = mar
         self.address = add
-
-    def show_student(self):
-        print("Student Information")
-        print("Roll No :", self.roll)
-        print("Name :", self.name)
-        print("Marks :", self.marks)
-        print("Address :", self.address)
 
 
 class Teacher:
@@ -20,20 +21,42 @@ class Teacher:
         self.department = dept
         self.address = add
 
-    def show_teacher(self):
-        print("Teacher Information")
-        print("Name :", self.name)
-        print("Salary :", self.salary)
-        print("Department :", self.department)
-        print("Address :", self.address)
+
+class Address:
+    def __init__(self, c, p):
+        self.city = c
+        self.pin = p
+
+address1 = Address("Pune", 411038)
+address_stu = Address("Pune", 411007)
+address_college = Address("Karve Nagar Pune", 411411)
+
+teacher1 = Teacher("Atul Sir", 75000, "Python", address1)
+
+student1 = Student(21, "Zaid", 83, address_stu)
+
+college1 = College("The Kiran Academy", student1, teacher1, address_college)
+
+# Student information
+print("Student Information")
+print(college1.student.roll)
+print(college1.student.name)
+print(college1.student.marks)
+print(college1.student.address.city)
+print(college1.student.address.pin)
 
 
-# Object Student
-student1 = Student(101, "Zaid", 83, "Pune")
-student1.show_student()
+# Teacher information
+print("Teacher Information")
+print(college1.teacher.name)
+print(college1.teacher.salary)
+print(college1.teacher.department)
+print(college1.teacher.address.city)
+print(college1.teacher.address.pin)
 
-print()
 
-# Object Teacher
-teacher1 = Teacher("Atul Sir", 75000, "Data Analytics / Core Python", "Pune")
-teacher1.show_teacher()
+# College information
+print("College Information")
+print(college1.name)
+print(college1.address.city)
+print(college1.address.pin)
